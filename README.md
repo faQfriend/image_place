@@ -21,12 +21,6 @@
 
 1. Клонируйте репозиторий на свой компьютер:
 
-    ```bash
-    git clone git@github.com:faqfriend/kittygram_final.git
-    ```
-    ```bash
-    cd kittygram
-    ```
 2. Создайте файл .env и заполните его своими данными. Перечень данных указан в корневой директории проекта в файле .env.example.
 
 
@@ -36,19 +30,19 @@
 
     ```bash
     cd frontend
-    docker build -t username/kittygram_frontend .
+    docker build -t username/image_place_frontend .
     cd ../backend
-    docker build -t username/kittygram_backend .
+    docker build -t username/image_place_backend .
     cd ../nginx
-    docker build -t username/kittygram_gateway . 
+    docker build -t username/image_place_gateway . 
     ```
 
 2. Загрузите образы на DockerHub:
 
     ```bash
-    docker push username/kittygram_frontend
-    docker push username/kittygram_backend
-    docker push username/kittygram_gateway
+    docker push username/image_place_frontend
+    docker push username/image_place_backend
+    docker push username/image_place_gateway
     ```
 
 ### Деплой на сервере
@@ -59,10 +53,10 @@
     ssh -i путь_до_файла_с_SSH_ключом/название_файла_с_SSH_ключом имя_пользователя@ip_адрес_сервера 
     ```
 
-2. Создайте на сервере директорию kittygram через терминал
+2. Создайте на сервере директорию image_place через терминал
 
     ```bash
-    mkdir kittygram
+    mkdir image_place
     ```
 
 3. Установка docker compose на сервер:
@@ -75,10 +69,10 @@
     sudo apt-get install docker-compose-plugin
     ```
 
-4. В директорию kittygram/ скопируйте файлы docker-compose.production.yml и .env:
+4. В директорию image_place/ скопируйте файлы docker-compose.production.yml и .env:
 
     ```bash
-    scp -i path_to_SSH/SSH_name docker-compose.production.yml username@server_ip:/home/username/kittygram/docker-compose.production.yml
+    scp -i path_to_SSH/SSH_name docker-compose.production.yml username@server_ip:/home/username/image_place/docker-compose.production.yml
     * ath_to_SSH — путь к файлу с SSH-ключом;
     * SSH_name — имя файла с SSH-ключом;
     * username — ваше имя пользователя на сервере;
@@ -135,7 +129,7 @@
 1. Используйте уже готовый файл workflow. Он находится здесь:
 
     ```bash
-    kittygram/.github/workflows/main.yml
+    image_place/.github/workflows/main.yml
     ```
 
 2. Создайте секреты в GitHub Actions:
